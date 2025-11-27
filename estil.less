@@ -1,0 +1,155 @@
+html {
+    body {
+        > div {
+            min-height: 100vh;
+
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+
+            header,
+            footer {
+                position: relative;
+                background-color: lime;
+                border: 1px solid black;
+                padding: 10px;
+
+                #menuHandler {
+                    display: none;
+                }
+            }
+
+            main {
+                flex: 1;
+                display: grid;
+                margin: 0px auto;
+                max-width: 900px;
+                grid-template-columns: 50fr 20fr 30fr;
+                grid-template-areas: "left center right";
+
+                section {
+                    padding: 20px;
+                }
+
+                #leftc {
+                    grid-area: right;
+                    background-color: orange;
+                }
+
+                #contents {
+                    grid-area: left;
+                    background-color: powderblue;
+                }
+
+                #rightc {
+                    grid-area: center;
+                    background-color: violet;
+                }
+            }
+
+            nav {
+
+                background-color: rgb(228, 228, 252);
+
+                ul {
+                    display: flex;
+
+                    li {
+                        flex: 1;
+                        display: block;
+                        padding: 15px;
+                        text-align: center;
+                        border: 1px solid black;
+                    }
+                }
+            }
+
+        }
+    }
+}
+
+@media screen and (600px <=width <=900px) {
+
+    #elMasMain {
+
+
+        main {
+
+            grid-template-columns: 50fr 50fr;
+            grid-template-rows: auto 1fr;
+            grid-template-areas: "left  right"
+                "content content";
+
+
+            #leftc {
+                grid-area: left;
+
+            }
+
+            #contents {
+                grid-area: content;
+
+            }
+
+            #rightc {
+                grid-area: right;
+
+            }
+        }
+
+    }
+
+}
+
+@media screen and (width <=600px) { // FORMAT MÒBIL
+
+    #elMasMain {
+
+        #menuHandler {
+                display: block;
+                position: absolute;
+                top:50%;
+                right:10px;
+                transform: translateY(-50%);
+                cursor:cell;
+                &:hover {
+                    color: white;
+                }
+        }
+
+        main {
+
+           display:block;
+            
+        }
+        nav {
+            opacity: 1;
+            transition:all 3s;
+            
+            ul{
+                display: block;
+                //flex-direction: column;
+                li {
+                    display: block;
+                    height:25px;
+                    line-height:25px;
+                    transition:all 3s;
+                    overflow: hidden;
+                }
+            }
+
+            &.hidden_menu{
+                opacity: 0;
+                transition:all 3s;
+                 li {
+                    height:0px;
+                    padding: 0px;
+                    margin: 0px;
+                    border-width:0px;
+                 }
+            }
+        }
+
+    }
+
+}

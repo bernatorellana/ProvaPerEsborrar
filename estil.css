@@ -1,0 +1,109 @@
+html body > div {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+html body > div header,
+html body > div footer {
+  position: relative;
+  background-color: lime;
+  border: 1px solid black;
+  padding: 10px;
+}
+html body > div header #menuHandler,
+html body > div footer #menuHandler {
+  display: none;
+}
+html body > div main {
+  flex: 1;
+  display: grid;
+  margin: 0px auto;
+  max-width: 900px;
+  grid-template-columns: 50fr 20fr 30fr;
+  grid-template-areas: "left center right";
+}
+html body > div main section {
+  padding: 20px;
+}
+html body > div main #leftc {
+  grid-area: right;
+  background-color: orange;
+}
+html body > div main #contents {
+  grid-area: left;
+  background-color: powderblue;
+}
+html body > div main #rightc {
+  grid-area: center;
+  background-color: violet;
+}
+html body > div nav {
+  background-color: #e4e4fc;
+}
+html body > div nav ul {
+  display: flex;
+}
+html body > div nav ul li {
+  flex: 1;
+  display: block;
+  padding: 15px;
+  text-align: center;
+  border: 1px solid black;
+}
+@media screen and (600px <= width <= 900px) {
+  #elMasMain main {
+    grid-template-columns: 50fr 50fr;
+    grid-template-rows: auto 1fr;
+    grid-template-areas: "left  right" "content content";
+  }
+  #elMasMain main #leftc {
+    grid-area: left;
+  }
+  #elMasMain main #contents {
+    grid-area: content;
+  }
+  #elMasMain main #rightc {
+    grid-area: right;
+  }
+}
+@media screen and (width <= 600px) {
+  #elMasMain #menuHandler {
+    display: block;
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    cursor: cell;
+  }
+  #elMasMain #menuHandler:hover {
+    color: white;
+  }
+  #elMasMain main {
+    display: block;
+  }
+  #elMasMain nav {
+    opacity: 1;
+    transition: all 3s;
+  }
+  #elMasMain nav ul {
+    display: block;
+  }
+  #elMasMain nav ul li {
+    display: block;
+    height: 25px;
+    line-height: 25px;
+    transition: all 3s;
+    overflow: hidden;
+  }
+  #elMasMain nav.hidden_menu {
+    opacity: 0;
+    transition: all 3s;
+  }
+  #elMasMain nav.hidden_menu li {
+    height: 0px;
+    padding: 0px;
+    margin: 0px;
+    border-width: 0px;
+  }
+}
