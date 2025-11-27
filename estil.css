@@ -1,3 +1,8 @@
+html {
+  /*
+        Mes canvis
+    */
+}
 html body > div {
   min-height: 100vh;
   display: flex;
