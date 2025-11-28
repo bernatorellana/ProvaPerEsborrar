@@ -26,27 +26,26 @@ html {
 
             main {
                 flex: 1;
-                display: grid;
+                display: flex;
                 margin: 0px auto;
-                max-width: 900px;
-                grid-template-columns: 50fr 20fr 30fr;
-                grid-template-areas: "left center right";
+                max-width: 900px; 
 
                 section {
                     padding: 20px;
                 }
 
                 #leftc {
-                    grid-area: right;
+                    order:3;
                     background-color: orange;
                 }
 
                 #contents {
-                    grid-area: left;
+                    order:1;
                     background-color: powderblue;
                 }
 
                 #rightc {
+                    order:2;
                     grid-area: center;
                     background-color: violet;
                 }
@@ -80,24 +79,24 @@ html {
 
         main {
 
-            grid-template-columns: 50fr 50fr;
-            grid-template-rows: auto 1fr;
-            grid-template-areas: "left  right"
-                "content content";
+            flex-wrap: wrap;
 
 
             #leftc {
-                grid-area: left;
-
+                box-sizing: border-box;
+                order:1;
+                width: 50%;
             }
 
             #contents {
-                grid-area: content;
+               order:3;
 
             }
 
             #rightc {
-                grid-area: right;
+                box-sizing: border-box;
+                order:2;
+                width: 50%;
 
             }
         }
@@ -124,7 +123,8 @@ html {
 
         main {
 
-           display:block;
+           display:flex;
+           flex-direction: column   ;
             
         }
         nav {
